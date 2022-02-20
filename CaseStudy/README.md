@@ -1,7 +1,7 @@
 # MICROWAVE
 
-## Block Diagram:
-![BlockDiagram](https://user-images.githubusercontent.com/99074356/154841836-39568f0a-92cc-461d-910a-a41fa2c826ea.png)
+## Block Diagram:![BlockDiagram](https://user-images.githubusercontent.com/99074356/154843928-10a24594-44dc-4a3e-baf1-98f61493d970.png)
+
 
 
 ### High level Requirements:
