@@ -27,3 +27,11 @@
 * We can heat up our food whenever we want.
 * We can defrost frozen food.
 * We can even cook some food items.
+
+### Components:
+
+* Timer: To set time
+* Door sensor: To stop the oven if the door is open if the oven is operating.
+* Beeper: The beeper makes sound alarming the user when the food is ready.
+* LCD display: To display everything.
+* Buttons: To give instructions. 
