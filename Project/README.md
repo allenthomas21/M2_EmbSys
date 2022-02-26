@@ -23,5 +23,27 @@ Small space heaters work by convection (the circulation of air in a room) or rad
 ## Low Level Requirement :
 
 * Power indicate light can lets you know at a glance that it’s plugged in.
-* Ceramic heater for small space, warm you up in winter.
+* Heater for small space, warm you up in winter.
 * Portable heater with handle, easy to move from room to room.
+* Should adapt with the AC environment settings.
+
+## Components :
+
+* Humidtiy Sensor- Humidity sensors are electronic devices that measure and report the moisture and air temperature of the surrounding environment where they are deployed
+* Temperature Sensor-A temperature sensor is a device that detects and measures hotness and coolness and converts it into an electrical signal.
+* Signal Conditioning- Signal conditioning is the manipulation of an analog signals in such a way that it meets the requirements of the next stage for further processing. It makes it stronger. 
+* Analog Multiplexer- An analog multiplexer is a device used to select one of many input signals and connect that selected input to a single
+* Analog to ditigal Converter- Converts analog signals into ditigal signals.
+* Keypad- To enter the temperature required.
+* Oscillator- An electronic oscillator is an electronic circuit that produces a periodic, oscillating electronic signal, often a sine wave or a square wave or a triangle wave.In this case ,they provide stablity.
+* DC fans- To cool down the device,if it overheats.
+* Reset Push button- To reset the device, if an error occurs.
+* Power Supply- Power supply to the device, for the device to work
+* LCD Display- To display the temperature of the room and the temperature required to achieve.
+* LED Indicators- To indicate whether the device is swtiched on or off.
+
+## Application:
+
+* It can be used in house to heat up a room in winters.
+* It can used during camping (outdoor).
+* It can used for drying clothes (Not MUCH Recommended).
