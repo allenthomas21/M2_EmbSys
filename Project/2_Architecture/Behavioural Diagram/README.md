@@ -2,7 +2,7 @@
 
 ## High Level Diagram:
 
-![Behavioural Diagrams -- HL](https://user-images.githubusercontent.com/99074356/157279492-fdd3a990-e376-4187-a51b-bed1b8435ac0.png)
+![Bahavioral - HL](https://user-images.githubusercontent.com/99074356/157281795-2f1b24d9-81a4-48f7-8806-496f664b4ce1.png)
 
 ## Low Level Diagram:
 
