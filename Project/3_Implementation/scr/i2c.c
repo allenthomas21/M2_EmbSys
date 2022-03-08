@@ -107,7 +107,7 @@ void send_start(void) {
 
 	TWCR = ((1 << TWEN) | (1 << TWSTA) | (1 << TWINT));
 	while (!(TWCR & (1 << TWINT)))
-		;  //wait for TWINT to be set
+		; 
 
 }
 
@@ -116,13 +116,13 @@ void send_address(U8 add, access_mode acc) {
 		TWDR = ((U8) (add << 1) | (U8) 0x01);
 		TWCR = ((1 << TWINT) | (1 << TWEN));
 		while (!(TWCR & (1 << TWINT)))
-			;  //wait for TWINT flag SET
+			;  
 	} else {
 		TWDR = ((U8) (add << 1) | (U8) 0x00);
-		// TWDR = 0x68 ;
+		 ;
 		TWCR = ((1 << TWINT) | (1 << TWEN));
 		while (!(TWCR & (1 << TWINT)))
-			;  //wait for TWINT flag SET
+			;  
 	}
 
 }

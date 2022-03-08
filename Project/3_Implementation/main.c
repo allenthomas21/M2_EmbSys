@@ -1,17 +1,26 @@
+/**
+ * @file main.c
+ * @author allen thomas
+ * @brief Obstacle Awarness System progrm
+ * @version 0.1
+ * @date 2022-03-08
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
+
 #ifndef __AVR_ATmega328__
 #define __AVR_ATmega328__
 #endif
 
-/*
- * main.c
- *
- */
+
 
 #include "i2c_lcd.h"
 #include "inputCapture_timer.h"
 #include "usart.h"
 
-//#define DEBUG_ON
+
 
 #define SPEED_OF_SOUND_IN_CM_S (331/10)
 
@@ -27,42 +36,37 @@ char value_buf[7] = { 0 };
 char dec_val_buf[7] = { 0 };
 
 void init_input_capture() {
-	TIMSK1 = ((1 << ICIE1)); /* Enable ICP Interrupt */
-	TCCR1B = ((1 << ICES1) | (1 << ICNC1) | (1 << CS12)); /* Enable rising edge detection,
-	 noise cancellation,
-	 clock Pre-scaler 256*/
+	TIMSK1 = ((1 << ICIE1)); 
+	TCCR1B = ((1 << ICES1) | (1 << ICNC1) | (1 << CS12)); 
 	edge.current_edge = INIT_RISING;
 	edge.next_edge = INIT_RISING;
 }
 
 void init_timer2() {
-	TIFR2 = 1 << OCF2A; /* Clear Output compare match flag  */
-	TIMSK2 = 1 << OCIE2A; /* Timer 2 compare match is enabled*/
-	TCCR2A = 1 << WGM21; /* CTC Mode*/
-	TCCR2B = ((1 << CS21)); /* clock Prescaler 8 */
+	TIFR2 = 1 << OCF2A; 
+	TIMSK2 = 1 << OCIE2A; 
+	TCCR2A = 1 << WGM21; 
+	TCCR2B = ((1 << CS21));
 }
 
 int main() {
 
 	DDRC = 0xFF;
-	PORTC = 0x00;   //Enable internal pullups on PORTC PINS  SDA(PC4) ,SCL(PC5)
-
-	DDRB = 0b00000010; /*PB0 as INPUT to receive Echo, PB1 as output for Trigger*/
+	PORTC = 0x00;   
+	DDRB = 0b00000010;
 	PORTB = (1 << PB0) | (1 << PB1);
 
-	OCR2A = (uint8_t) OCR2A_VALUE;  /*Timer that generates an interrupt every 20uS*/
-
+	OCR2A = (uint8_t) OCR2A_VALUE; 
 	usart_init(BAUD_VAL);
 	set_i2c_clock(100);
 
-	/**Initialize LCD**/
-	LCD_Init();
+	LCD_Initial();
 
 	LCD_Clear();
-	LCD_Write_String("Distance: ");
+	LCD_Write_Str("Distance: ");
 	LCD_Clear();
 
-	/**Initialize Timer and ICP**/
+
 	init_input_capture();
 	init_timer2();
 
@@ -77,15 +81,14 @@ int main() {
 			else
 				temp = (float) ((65535 - ticks_t1) + ticks_t2)
 						/ (float) TICKS_VAL;
-			temp *= 1000000; /*Calculate the pulse width in uS*/
-
+			temp *= 1000000; 
 			elapsed_time = (uint16_t) temp;
 
 			distance = ((float) SPEED_OF_SOUND_IN_CM_S * (float) elapsed_time)
 					/ (float) 2000;
-			dist_whole = (uint16_t) distance; /*Characteristic part of Number*/
+			dist_whole = (uint16_t) distance; 
 			dist_dec = (uint16_t) (((float) distance - (float) dist_whole)
-					* 1000); /*Mantissa of the number*/
+					* 1000); 
 			sei();
 			sprintf(dec_val_buf, "%1u", dist_dec);
 			sprintf(value_buf, "%u", dist_whole);
@@ -98,10 +101,10 @@ int main() {
 		USART_Tx_string(value_buf);
 #endif
 
-		/*Send values to LCD*/
+		
 		LCD_Goto(1, 1);
-		LCD_Write_String("Dist:");
-		LCD_Write_String(value_buf);
+		LCD_Write_Str("Dist:");
+		LCD_Write_Str(value_buf);
 		LCD_Write_String("cm");
 
 	}
@@ -118,7 +121,7 @@ ISR(TIMER1_CAPT_vect) {
 
 		ticks_t1 = ICR1L;
 		ticks_t1 |= (ICR1H << 8);
-		TCCR1B &= ~(1 << ICES1); /*Next Interrupt on Falling edge*/
+		TCCR1B &= ~(1 << ICES1); 
 		edge.next_edge = FALLING;
 
 	}
@@ -127,7 +130,7 @@ ISR(TIMER1_CAPT_vect) {
 	case RISING: {
 		ticks_t1 = (uint16_t) ICR1L;
 		ticks_t1 |= (uint16_t) (ICR1H << 8);
-		TCCR1B &= ~(1 << ICES1); /*Next Interrupt on Falling edge*/
+		TCCR1B &= ~(1 << ICES1); 
 		edge.current_edge = RISING;
 		edge.next_edge = FALLING;
 
@@ -137,7 +140,7 @@ ISR(TIMER1_CAPT_vect) {
 	case FALLING: {
 		ticks_t2 = (uint16_t) ICR1L;
 		ticks_t2 |= (uint16_t) (ICR1H << 8);
-		TCCR1B |= (1 << ICES1); /*Next Interrupt on Rising edge*/
+		TCCR1B |= (1 << ICES1); 
 		edge.current_edge = FALLING;
 		edge.next_edge = RISING;
 	}

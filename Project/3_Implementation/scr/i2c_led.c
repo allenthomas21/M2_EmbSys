@@ -8,7 +8,7 @@
 #include <util/delay.h>
 #include <stdint.h>
 
-uint8_t LCD_BL_Status = 1;     // 1 for POSITIVE control, 0 for NEGATIVE control
+uint8_t LCD_BL_Status = 1;     
 
 unsigned char bit_test(uint8_t nibble, uint8_t bit_num) {
 	if ((nibble & (1 << bit_num)))
@@ -45,27 +45,27 @@ void LCD_BL(uint8_t status) {
 	LCD_Write_Byte(0x00, 0x00);
 }
 
-void LCD_Init() {
+void LCD_Initial() {
 
-	// Following bytes are all Command bytes, i.e. address = 0x00
-	LCD_Write_Byte(0x00, 0x03); // Write Nibble 0x03 three times (per HD44780U initialization spec)
-	_delay_ms(10);                // (per HD44780U initialization spec)
+	
+	LCD_Write_Byte(0x00, 0x03);
+	_delay_ms(10);                
 	LCD_Write_Byte(0x00, 0x03);   //
-	_delay_ms(10);                // (per HD44780U initialization spec)
+	_delay_ms(10);                
 	LCD_Write_Byte(0x00, 0x03);   //
-	_delay_ms(10);                // (per HD44780U initialization spec)
-	LCD_Write_Byte(0x00, 0x02); // Write Nibble 0x02 once (per HD44780U initialization spec)
+	_delay_ms(10);                
+	LCD_Write_Byte(0x00, 0x02); 
 	_delay_ms(10);
-	LCD_Write_Byte(0x00, 0x02); // Write Nibble 0x02 once (per HD44780U initialization spec)
-	_delay_ms(10);                // (per HD44780U initialization spec)
-	LCD_Write_Byte(0x00, 0x01);   // Set mode: 4-bit, 2+lines, 5x8 dots
-	_delay_ms(10);                // (per HD44780U initialization spec)
-	LCD_Write_Byte(0x00, 0x0C);   // Display ON 0x0C
-	_delay_ms(10);                // (per HD44780U initialization spec)
-	LCD_Write_Byte(0x00, 0x01);   // Clear display
-	_delay_ms(10);                // (per HD44780U initialization spec)
-	LCD_Write_Byte(0x00, 0x06);   // Set cursor to increment
-	_delay_ms(10);                // (per HD44780U initialization spec)
+	LCD_Write_Byte(0x00, 0x02);  
+	_delay_ms(10);                 
+	LCD_Write_Byte(0x00, 0x01);    
+	_delay_ms(10);                 
+	LCD_Write_Byte(0x00, 0x0C);    
+	_delay_ms(10);                
+	LCD_Write_Byte(0x00, 0x01);   
+	_delay_ms(10);                 
+	LCD_Write_Byte(0x00, 0x06);    
+	_delay_ms(10);                 
 
 }
 
@@ -98,19 +98,19 @@ void LCD_Goto(uint8_t x, uint8_t y) {
 	LCD_Write_Byte(0, 0x80 | address);
 }
 
-//===================================
-void LCD_Write_String(const char *str) {
-	// Writes a string text[] to LCD via I2C
+
+void LCD_Write_Str(const char *str) {
+	
 	pin_RS = 1;
 	pin_RW = 0;
 	pin_E = 0;
 	pin_BL = LCD_BL_Status;
 
 	while (*str) {
-		// Send upper nibble
+	
 		_LCD_Write_Upper_Nibble(*str);
 
-		// Send lower nibble
+		
 		_LCD_Write_Lower_Nibble(*str);
 
 		str++;
@@ -141,22 +141,21 @@ void LCD_Write_Int(int32_t num) {
 	}
 }
 
-//===================================
 void LCD_Write_Byte(uint8_t address, uint8_t n) {
 	if (address) {
-		pin_RS = 1;   // Data
+		pin_RS = 1;  
 	} else {
-		pin_RS = 0;   // Command
+		pin_RS = 0;   
 	}
 
 	pin_RW = 0;
 	pin_E = 0;
 	pin_BL = LCD_BL_Status;
 
-	// Send upper nibble
+	
 	_LCD_Write_Upper_Nibble(n);
 
-	// Send lower nibble
+	
 	_LCD_Write_Lower_Nibble(n);
 }
 
@@ -165,17 +164,17 @@ void LCD_Clear() {
 	_delay_ms(1);
 }
 
-void LCD_Clear_Line(uint8_t line) {
+void LCD_ClearLine(uint8_t line) {
 	LCD_Goto(1, line);
 	for (int i = 0; i < 20; i++) {
-		LCD_Write_String(" ");
+		LCD_Write_Str(" ");
 	}
 	LCD_Goto(1, line);
 }
 
 void _LCD_Write_Upper_Nibble(uint8_t u) {
 	uint8_t nibble_to_send;
-	// Send upper nibble
+	
 	if (bit_test(u, 7))
 		pin_D7 = 1;
 	else
@@ -211,7 +210,7 @@ void _LCD_Write_Upper_Nibble(uint8_t u) {
 
 void _LCD_Write_Lower_Nibble(uint8_t l) {
 	uint8_t nibble_to_send;
-	// Send lower nibble
+	
 	if (bit_test(l, 3))
 		pin_D7 = 1;
 	else
