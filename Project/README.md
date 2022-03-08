@@ -5,7 +5,6 @@ An ultrasonic sensor is an electronic device that omits ultrasonic sound waves t
 ## Folder structure
 | Folder | Description |
 | --- | --- |
-
 | `1_Requirements` |Documents about requirements and research| 
 | `2_Architecture` |Documents about architecture details |
 | `3_Implementation`|All codes|
