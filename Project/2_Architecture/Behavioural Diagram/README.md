@@ -2,8 +2,8 @@
 
 ## High Level Diagram:
 
-![Bahavioral - HL](https://user-images.githubusercontent.com/99074356/157281795-2f1b24d9-81a4-48f7-8806-496f664b4ce1.png)
+![beva 3](https://user-images.githubusercontent.com/99074356/157293368-f122a114-937f-4e91-b648-b3721199dd0c.png)
 
 ## Low Level Diagram:
 
-![Behavioral LL](https://user-images.githubusercontent.com/99074356/157282085-d859199c-167f-4b5b-914c-e92b5dc2dd09.png)
+![BEH-LL](https://user-images.githubusercontent.com/99074356/157297523-92611b27-5756-41e4-8636-ca8618ddc980.png)
