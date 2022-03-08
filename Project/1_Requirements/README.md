@@ -31,6 +31,9 @@ This circuit was developed by connecting the ultrasonic sensor to an AVR microco
 
 ![SWOT (1)](https://user-images.githubusercontent.com/99074356/157277682-7f0e49b7-da04-433b-998f-f564582f32d0.png)
 
+## Block Diagram:
+
+![Block Diagram](https://user-images.githubusercontent.com/99074356/157279846-27005b7b-700e-4a00-bff5-c0492fb786b4.png)
 
 
 
