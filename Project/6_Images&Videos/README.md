@@ -23,3 +23,7 @@
 # Structural Diagram:
 
 ![structal ](https://user-images.githubusercontent.com/99074356/157292300-27ec74b1-330d-4a6a-904e-3a35028de071.png)
+
+# Simulation:
+
+![Simulation](https://user-images.githubusercontent.com/99074356/157298646-09cd4b3b-44fd-4d09-bdf5-4ab24847b10f.png)
