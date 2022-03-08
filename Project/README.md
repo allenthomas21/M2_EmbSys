@@ -10,9 +10,9 @@ This circuit was developed by connecting the ultrasonic sensor to an AVR microco
 | `2_Architecture` |Documents about architecture details |
 | `3_Implementation`|All codes|
 | `4_TestPlanAndOutput` |Documents for test plan and output|
-| `5_Report` -|Report|
-| `6_Images&Videos` -|Images and Videos from the project|
-| `7_Output` - |Output of the project|
+| `5_Report` |Report|
+| `6_Images&Videos` |Images and Videos from the project|
+| `7_Output`  |Output of the project|
 
 
 | CppCheck | Codiga | Codiga | Build|
