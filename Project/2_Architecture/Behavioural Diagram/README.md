@@ -6,4 +6,4 @@
 
 ## Low Level Diagram:
 
-![Behavioural Diagrams -- LL](https://user-images.githubusercontent.com/99074356/157279560-d2b28859-fbf0-41c7-aa49-d6fe9faa0feb.png)
+![Behavioral LL](https://user-images.githubusercontent.com/99074356/157282085-d859199c-167f-4b5b-914c-e92b5dc2dd09.png)
