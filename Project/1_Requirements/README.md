@@ -1,7 +1,6 @@
 # Introduction
 
-This circuit was developed by connecting the ultrasonic sensor to an AVR microcontroller. This sensor uses a technique called "echo" that is obtained when the sound bounces after hitting a surface. We know that sound vibrations cannot penetrate  solids. Therefore, when  sound sources generate vibrations, they move in the air at a speed of 220 meters per second. These vibrations are called sounds when they hit your ears. As mentioned earlier, these vibrations can not pass firmly throughout. The ultrasound sensor "HCSR04" provides an output signal proportional to an echo-based distance. Here, the sensor creates sound vibration in the ultrasonic range, and when it brings a trigger, the sound vibration is waiting to return. The purpose of this is, it is fitted in vehicles to prevent collision and assist in self parking.
-
+An ultrasonic sensor is an electronic device that omits ultrasonic sound waves to measure the distance of the object, and converts the reflected sound into an electrical signal. Ultrasonic waves move faster than  audible sound. Ultrasonic sensors have two major components. The transmitter and  receiver . In this project,  the ultrasound sensor was used in ATMEGA328 to determine the distance  from the sensor. Basic principles of ultrasound distance measurement are based on echo. If the sound wave is sent in the environment, the waves will return to the obstacle to the origin  after  the terms. Therefore, it is only necessary to calculate the travel time of both sounds, that is, the travel time to the origin after hitting an obstacle.
 
 ## 4W & 1H 
 
