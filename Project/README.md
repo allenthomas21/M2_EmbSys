@@ -1,7 +1,5 @@
 # Obstacle Awarness System
 
-An ultrasonic sensor is an electronic device that omits ultrasonic sound waves to measure the distance of the object, and converts the reflected sound into an electrical signal. Ultrasonic waves move faster than  audible sound. Ultrasonic sensors have two major components. The transmitter and  receiver . In this project,  the ultrasound sensor was used in ATMEGA328 to determine the distance  from the sensor. Basic principles of ultrasound distance measurement are based on echo. If the sound wave is sent in the environment, the waves will return to the obstacle to the origin  after  the terms. Therefore, it is only necessary to calculate the travel time of both sounds, that is, the travel time to the origin after hitting an obstacle.
-
 ## Folder structure
 | Folder | Description |
 | --- | --- |
